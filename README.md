@@ -1,1 +1,1 @@
-# Web application that allows users storing and adding recipes
+# Web application that allows users to store and add recipes
