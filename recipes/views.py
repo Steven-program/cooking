@@ -16,7 +16,7 @@ def home(request):
 
 def about(request):
     context = {
-        "title": "About us page",
+        "title": "About page",
     }
     return render(request, "recipes/about.html", context)
 
@@ -31,15 +31,16 @@ class RecipeDetailView(DetailView):
 
 class RecipeCreateView(CreateView):
     model = models.Recipe
-    fields = ["title", "description"]
+    fields = ["title", "ingredients", "steps", "img"]
     
+    #this automatically submits the data to the database 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
 class RecipeUpdateView(UpdateView):
     model = models.Recipe
-    fields = ["title", "description"]
+    fields = ["title", "ingredients", "steps", "img"]
     
     def form_valid(self, form):
         form.instance.author = self.request.user
